@@ -1,5 +1,5 @@
 'use strict';
-var S = require('string');
+var str = require('string');
 
 module.exports = {
 
@@ -9,7 +9,7 @@ module.exports = {
       m: date.getUTCMonth() + 1,
       d: date.getUTCDate()
     };
-    return S('DateTime({{y}}-{{m}}-{{d}})').template(dates);
+    return str('DateTime({{y}}-{{m}}-{{d}})').template(dates);
   }
 
 };

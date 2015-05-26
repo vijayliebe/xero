@@ -17,25 +17,25 @@ describe('Xero API calls', function() {
 
   it('#find w/ filter', function(done) {
     var filter = 'Date > ' + xero.helpers.dateToXeroDateTimeString(new Date(0));
-    xero.invoices.find(filter, function(err, data) {
+    xero.Invoices.find(filter, function(err, data) {
       assert.isArray(data.Response.Invoices.Invoice);
       done();
     });
   });
 
   it('#find w/out filter', function(done) {
-    xero.invoices.find(function(err, data) {
+    xero.Invoices.find(function(err, data) {
       assert.isArray(data.Response.Invoices.Invoice);
       done();
     });
   });
 
-  it('All resources', function(done) {
+  it('All resources: #find', function(done) {
 
     var completed = [];
 
     resources.forEach(function(r) {
-      xero[r.toLowerCase()].find(function(err, data) {
+      xero[r].find(function(err, data) {
         completed.push(r);
         assert.equal(data.Response.Status, 'OK');
       });

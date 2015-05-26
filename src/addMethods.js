@@ -36,7 +36,7 @@ function addMethods(Xero, resources) {
   };
 
   resources.forEach(function(resource) {
-    Xero[resource.toLowerCase()] = _.create(methods, {resource: resource});
+    Xero[resource] = _.create(methods, {resource: resource});
   });
 
 }

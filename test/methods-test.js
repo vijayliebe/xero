@@ -18,7 +18,7 @@ describe('methods', function() {
 
   describe('#_withId', function() {
     it('should execute xero.call with id and method', function(done) {
-      xero.contacts.findOne('foo', function(err, res) {
+      xero.Contacts.findOne('foo', function(err, res) {
         assert.equal(res.path, 'api/Contacts/foo');
         assert.equal(res.method, 'GET');
         done();
@@ -29,10 +29,10 @@ describe('methods', function() {
   describe('#find', function() {
     it('should optionally accept a plain filter string', function(done) {
       var filter = 'Date > ' + xero.helpers.dateToXeroDateTimeString(new Date(0));
-      xero.invoices.find(filter, function(err, res) {
+      xero.Invoices.find(filter, function(err, res) {
         assert.equal(res.path, 'api/Invoices?where=Date%20%3E%20DateTime(1970-1-1)');
       });
-      xero.invoices.find(function(err, res) {
+      xero.Invoices.find(function(err, res) {
         assert.equal(res.path, 'api/Invoices');
         assert.equal(res.method, 'GET');
       });

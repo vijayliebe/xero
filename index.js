@@ -35,7 +35,8 @@ Xero.prototype.call = function(method, path, body, callback) {
             post_body = body;
         } else {
             var root = path.match(/([^\/\?]+)/)[1];
-            post_body = new EasyXml({rootElement: inflect.singularize(root), rootArray: root, manifest: true}).render(body);
+            //post_body = new EasyXml({rootElement: inflect.singularize(root), rootArray: root, manifest: true}).render(body);
+            post_body = body;
             content_type = 'application/xml';
         }
     }
